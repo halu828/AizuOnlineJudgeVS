@@ -2,12 +2,12 @@
 #include <stdio.h>
 
 int main() {
-	int in, count = 0;
-	int stack[10];
-
-	while (scanf("%d", &in) != EOF) {
-		if (in == 0) printf("%d\n", stack[--count]);
-		else stack[count++] = in;
+	int i, d, s;
+	
+	while (scanf("%d", &d) != EOF) {
+		s = 0;
+		for (i = 1; i*d < 600; i++) s += (i*d)*(i*d)*d;
+		printf("%d\n", s);
 	}
 	return 0;
 }

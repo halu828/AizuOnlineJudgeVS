@@ -3,24 +3,21 @@
 
 #define _CRT_SECURE_NO_WARNINGS // scanf()の警告文に対しての解決策
 #include <stdio.h>
-#include <string.h>
-#include <ctype.h>
 
 int main() {
-	char buf[82];
-	int i, j;
+	int buf[5];
+	int i, j, temp;
 
-	while (fgets(buf, 82, stdin) != NULL) {
-		for (i = 0; i < 26; i++) {
-			for (j = 0; j < strlen(buf); j++) {
-				if (buf[j] == 'z') buf[j] = 'a';
-				else if (isalpha(buf[j])) buf[j]++;
+	scanf("%d %d %d %d %d", &buf[0], &buf[1], &buf[2], &buf[3], &buf[4]);
+	for (i = 0; i < 4; i++) {
+		for (j = 4; j > i; j--) {
+			if (buf[j - 1] < buf[j]) {
+				temp = buf[j];
+				buf[j] = buf[j - 1];
+				buf[j - 1] = temp;
 			}
-			if (strstr(buf, "the") != NULL ||
-				strstr(buf, "this") != NULL ||
-				strstr(buf, "that") != NULL)
-				printf("%s", buf);
 		}
 	}
+	printf("%d %d %d %d %d\n", buf[0], buf[1], buf[2], buf[3], buf[4]);
 	return 0;
 }

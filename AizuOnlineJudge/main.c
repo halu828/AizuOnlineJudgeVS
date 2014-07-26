@@ -5,19 +5,12 @@
 #include <stdio.h>
 
 int main() {
-	int buf[5];
-	int i, j, temp;
+	long long int i, n, sol = 1;
 
-	scanf("%d %d %d %d %d", &buf[0], &buf[1], &buf[2], &buf[3], &buf[4]);
-	for (i = 0; i < 4; i++) {
-		for (j = 4; j > i; j--) {
-			if (buf[j - 1] < buf[j]) {
-				temp = buf[j];
-				buf[j] = buf[j - 1];
-				buf[j - 1] = temp;
-			}
-		}
+	scanf("%lld", &n);
+	for (i = 1; i <= n; i++) {
+		sol *= i;
 	}
-	printf("%d %d %d %d %d\n", buf[0], buf[1], buf[2], buf[3], buf[4]);
+	printf("%lld\n", sol);
 	return 0;
 }

@@ -3,14 +3,16 @@
 
 #define _CRT_SECURE_NO_WARNINGS // scanf()の警告文に対しての解決策
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
 int main() {
-	long long int i, n, sol = 1;
+	char buf[512];
+	int i;
 
-	scanf("%lld", &n);
-	for (i = 1; i <= n; i++) {
-		sol *= i;
-	}
-	printf("%lld\n", sol);
+	gets(buf);
+	for (i = 0; i < strlen(buf); i++)
+		buf[i] = toupper(buf[i]);
+	printf("%s\n", buf);
 	return 0;
 }
